@@ -9,33 +9,27 @@ const pathPublic = path.join(__dirname,'public');
 //创建并使用中间件
 app.use(express.static(pathPublic));
 
-//定义一个get请求
-/*app.get('/index',function(req,res){
-    res.send({
-        code:101,
-        data:'ok',
-        info:{
-            name:'三三',
-            age:12
-        }
+    app.get('/info',function(req,res){
+        res.send({
+            code:101,
+            data:'ok',
+            info:{
+                name:'三三',
+                age:12
+            }
+         })
+        
     })
-})*/
 
-axios.get('/userInfo').then(function(res){
-    console.log(res.data)
-})
 
-//定义一个post请求
-/*app.post('/about',function (req,res) {
-    res.send({
-        code:100,
-        data:'关于'
+    app.post('/about',function (req,res) {
+        res.send({
+            code:100,
+            data:'关于'
+        })
     })
-})*/
 
-axios.post('/about').then(function(res){
-    console.log(res.data)
-})
+
 
 app.listen(4000,function(err){
     if(err){
