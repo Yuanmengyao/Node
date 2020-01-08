@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h2>后台管理系统</h2>
+    <script>
+    function cookieParser(){
+        let result ={};
+        let parts = document.cookie.split(';')
+        for(let i = 0;i < parts.length; i++){
+            let part = parts[i];
+            cook = part.split('=');
+            let cookieName = cook[0];
+            let cookieValue = cook[1];
+            result[cookieName] = cookieValue;
+            console.log(result[cookieName])
+        }
+        
+        return result;
+        
+    }
+    let cookieObj = cookieParser();
+    console.log(cookieObj)
+    console.log(cookieObj.token)
+    if(!cookieObj.token){
+        alert('token已失效，请重新登录');
+        location.href = './login.html';
+    }else {
+        alert('欢迎你！')
+    }
+    </script>
+</body>
+</html>

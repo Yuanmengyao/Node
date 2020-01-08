@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<script src="./axios.min.js"></script>
+<body>
+    <label for="">账号</label><input id="user" type="text" placeholder="请输入账号">
+    <label for="">密码</label><input id="pwd" type="password" placeholder="请输入密码">
+    <button onclick="login()">提交</button>
+    <script>
+    function login(){
+        let userName = document.getElementById('user').value;
+        let pwd = document.getElementById('pwd').value;
+
+        axios.post('/login',{
+            username:userName,
+            password:pwd
+        }).then(function(result){
+            console.log(result);
+            if(result.data.code === 100){
+                location.href = './admin.html';
+            }else{
+                alert(result.data.msg);
+            }
+        })
+    }
+    </script>
+</body>
+</html>
