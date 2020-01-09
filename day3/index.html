@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    *{margin: 0;padding: 0;}
+div{margin: 100px auto;width: 900px;}
+h1{color: red;display: block;width:900px;text-align: center;font-size: 60px;}
+span{
+    font-size: 50px;
+    font-weight: 700;
+    color: black;
+    float: left;
+    width: 800px;
+    text-align: center;
+    }
+p{display: inline-block;font-size:50px;font-weight: 700;color: black;float: left;width: 800px;text-align: center;}
+</style>
+<script src="./body_parser/public/axios.min.js"></script>
+<script src="./timeFn.js"></script>
+<body>
+    <div>
+        <h1>仗义每从屠狗辈,负心多是读书人</h1>
+        <span id="time"></span>
+        <p id="fang"></p>
+        <p id="home"></p>
+        <button></button>
+    </div>
+    
+    <script>
+        let homeObj = document.getElementById('home')
+        let pObj = document.getElementById('fang');
+        let end = "2020/1/17 下午6:00:00";
+       pObj.innerHTML = end
+//时间换算
+        setInterval(function(){
+            let nowDate = new Date();
+            let myTime=nowDate.toLocaleString();
+            let Time = document.getElementById('time');
+            mydTime=myTime.toString();
+            Time.innerHTML = mydTime;
+            console.log(typeof mydTime)
+        },1000)
+        
+        homeObj.innerHTML = diffDate('2020/1/17 18:00:00','2020/1/9 15:28:00')
+    </script>
+</body>
+</html>
